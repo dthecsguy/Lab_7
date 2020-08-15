@@ -31,7 +31,7 @@ int main(void) {
     /* Insert your solution below */
     while (1) {
         unsigned short adc = ADC;
-        unsigned char outtie = 1, temp = adc;
+        unsigned char outtie = 1;
         
         temp = 50;
         
