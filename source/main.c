@@ -35,7 +35,7 @@ int main(void) {
         
         adc = 50;
         
-        while( temp >= MIN ){
+        while( adc >= MIN ){
             outtie = (outtie << 1) | 0x01;
             adc -= INTERVAL;
         }
