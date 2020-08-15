@@ -34,7 +34,7 @@ int main(void) {
         unsigned char outtie = 1, temp = adc;
         
         while( temp >= MIN ){
-            outtie = (outtie << 1) | 0x01;
+            outtie = (outtie << 1);
             temp -= INTERVAL;
         }
         
