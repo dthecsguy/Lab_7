@@ -26,16 +26,12 @@ int main(void) {
     DDRB = 0xFF;    PORTB = 0x00;
     DDRD = 0xFF;    PORTD = 0X00;
     
-    unsigned short adc;
-    unsigned char outtie = 1, temp;
-    
     ADC_init();
 
     /* Insert your solution below */
     while (1) {
-        adc = ADC;
-        
-        temp = adc;
+        unsigned short adc = ADC;
+        unsigned char outtie = 1, temp = adc;
         
         while( temp >= MIN ){
             outtie = (outtie << 1) | 0x01;
@@ -43,6 +39,7 @@ int main(void) {
         }
         
         PORTB = outtie;
+        
     }
     return 1;
 }
