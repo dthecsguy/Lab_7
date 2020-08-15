@@ -33,7 +33,7 @@ int main(void) {
         unsigned short adc = ADC;
         unsigned char outtie = 1;
         
-        temp = 50;
+        adc = 50;
         
         while( temp >= MIN ){
             outtie = (outtie << 1) | 0x01;
