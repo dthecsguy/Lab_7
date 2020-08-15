@@ -31,7 +31,7 @@ int main(void) {
     /* Insert your solution below */
     while (1) {
         int adc = ADC;
-        unsigned char outtie = 1;
+        unsigned char outtie = 0;
         
         while( adc >= MIN ){
             outtie = (outtie << 1) | 0x01;
