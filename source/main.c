@@ -37,7 +37,7 @@ int main(void) {
         
         while( temp >= MIN ){
             outtie = (outtie << 1) | 0x01;
-            temp -= INTERVAL;
+            adc -= INTERVAL;
         }
         
         PORTB = outtie;
