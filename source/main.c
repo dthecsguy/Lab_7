@@ -43,7 +43,7 @@ int main(void) {
             outtie = 0;
         
         while( adc >= MIN ){
-            outtie = outtie + (outtie * 2);
+            outtie = (outtie << 1) | 0x01;
             adc -= INTERVAL;
         }
         
