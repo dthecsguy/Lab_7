@@ -42,7 +42,7 @@ int main(void) {
             temp -= INTERVAL;
         }
         
-        PORTB = 0x01;
+        PORTB = outtie;
     }
     return 1;
 }
