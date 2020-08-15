@@ -14,6 +14,7 @@
 
 #define MAX 1023
 #define MIN 48
+#define INTERVAL (MAX - MIN) / 8
 
 void ADC_init() {
     ADCSRA |= (1 << ADEN) | (1 << ADSC) | (1 << ADATE);
@@ -26,24 +27,27 @@ int main(void) {
     DDRD = 0xFF;    PORTD = 0X00;
     
     unsigned short adc;
-    unsigned char outB, outD;
+    unsigned char outtie;
     
     ADC_init();
 
     /* Insert your solution below */
     while (1) {
         adc = ADC;
-        if(adc >= MAX/2){
-            outB = 0xFF;
-            outD = 0x03;
+        
+        if (adc >= MIN){
+            outtie = 1;
+            adc -= INTERVAL;
         }
-        else {
-            outB = 0x00;
-            outD = 0x00;
+        else
+            outtie = 0;
+        
+        while( adc >= MIN ){
+            outtie = outtie + (outtie * 2);
+            adc -= INTERVAL;
         }
         
-        PORTB = outB;
-        PORTD = outD;
+        PORTB = outtie;
     }
     return 1;
 }
