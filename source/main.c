@@ -30,7 +30,7 @@ int main(void) {
 
     /* Insert your solution below */
     while (1) {
-        unsigned short adc = ADC;
+        int adc = ADC;
         unsigned char outtie = 1;
         
         adc = 47;
