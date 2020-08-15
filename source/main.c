@@ -33,8 +33,6 @@ int main(void) {
         int adc = ADC;
         unsigned char outtie = 1;
         
-        adc = 50;
-        
         while( adc >= MIN ){
             outtie = (outtie << 1) | 0x01;
             adc -= INTERVAL;
