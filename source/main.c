@@ -12,6 +12,9 @@
 #include "simAVRHeader.h"
 #endif
 
+#define MAX 1023
+#define MIN 48
+
 void ADC_init() {
     ADCSRA |= (1 << ADEN) | (1 << ADSC) | (1 << ADATE);
 }
@@ -30,9 +33,14 @@ int main(void) {
     /* Insert your solution below */
     while (1) {
         adc = ADC;
-        
-        outB = (char)adc;
-        outD = (char)(adc >> 8);
+        if(adc >= MAX/2){
+            outB = 0xFF;
+            outD = 0x03;
+        }
+        else {
+            outB = 0x00;
+            outD = 0x00;
+        }
         
         PORTB = outB;
         PORTD = outD;
