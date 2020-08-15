@@ -33,10 +33,7 @@ int main(void) {
         int adc = ADC;
         unsigned char outtie = 0;
         
-        while( adc >= MIN ){
-            outtie = (outtie << 1) | 0x01;
-            adc -= INTERVAL;
-        }
+        outtie = (adc >= (MAX / 2)) ? 0xFF : 0x00;
         
         PORTB = outtie;
         
