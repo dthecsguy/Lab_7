@@ -27,7 +27,7 @@ int main(void) {
     DDRD = 0xFF;    PORTD = 0X00;
     
     unsigned short adc;
-    unsigned char outtie = 1;
+    unsigned char outtie = 1, temp;
     
     ADC_init();
 
