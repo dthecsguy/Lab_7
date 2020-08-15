@@ -27,7 +27,7 @@ int main(void) {
     DDRD = 0xFF;    PORTD = 0X00;
     
     unsigned short adc;
-    unsigned char outtie;
+    unsigned char outtie = 1;
     
     ADC_init();
 
@@ -35,16 +35,11 @@ int main(void) {
     while (1) {
         adc = ADC;
         
-        if (adc >= MIN){
-            outtie = 1;
-            adc -= INTERVAL;
-        }
-        else
-            outtie = 0;
+        temp = adc;
         
-        while( adc >= MIN ){
+        while( temp >= MIN ){
             outtie = (outtie << 1) | 0x01;
-            adc -= INTERVAL;
+            temp -= INTERVAL;
         }
         
         PORTB = outtie;
